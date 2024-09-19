@@ -1,0 +1,27 @@
+; My name is Yanhao Yang and I did this program at 4/14/2023. The function of this program is to add up the 
+; the positive value in the memory place and store the sum in Register 5.
+; As an approach to the solution,I first assign R1 as the place that holds the location of the memory where the
+; number is stored in, and then at the start of each loop I give the value in the memory place to R4 and set the 
+; Then I made a BR code, if the value of cc, determined by the value inserted is negative, then we would ignore 
+; the next line that adds the value in R4 to R5. Afterwards, we would move the R1 to the next memory location by
+; adding one and decrease the Counter R2 by one. Then another BR code would determine if the R2 is zero, if
+; it is zero, we would stop the program, otherwise we would move back to the beginning of the loop.
+; Register table:
+; R1-working as a pointer to point the location of the numbers in memory that are being analyzed.
+; R2- Counter for 10 numbers
+; R5- the place that stores final sum
+; R4 - temporary storage place for the number that is analyzed
+
+0011 0001 0000 0000 ; x3100               Starting address of the program
+1110 001 000110001  ; R1 <- PC + x31      Initialize R1 to x3032, the location of the first number
+0101 101 011 1 00000; R5 <- 0             Initialize R3 to zero
+0001 010 101 1 01010; R2 <- R5 + x0A      Initialize the value Counter R2 to 10
+0110 100 001 000000 ; R4 <- M[R3]         Give the R4 the value that is being analyzed
+0000 100 000000001  ; If n, PC <- PC + 1  If the value is negative, ignore the next line
+0001 101 101 000 100; R5 <- R5 + R4       Add the value being analyzed as positive to R5
+0001 001 001 1 00001; R1 <- R1 + 1        Move the R1 to the location of the next number
+0001 010 010 1 11111; R2 <- R2 + xFFFF    Minus the counter R2 by 1
+0000 001 111111010;   If p,PC <-PC +x FFFA  If R2 is still positive, moves PC back 5 steps
+1111 0000 0010 0101;  Counter reaches 0          End of the program    
+
+

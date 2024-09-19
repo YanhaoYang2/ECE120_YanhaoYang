@@ -1,0 +1,25 @@
+Question 1: Describe the errors that occur when trying to assemble lab11.asm. Identify the cause of each error.
+
+(line of error : cause of error)
+line 14: illegal operands for missing opcode
+line 16: instruction appears before .ORIG
+line 17: constant outside of allowed range
+line 19: illegal operands for ADD
+line 30: constant outside of allowed range
+line 32: label OUTERLOOP has already appeared
+line 41: no .END directive found      
+
+Question 2: For each label in your code (with all bugs fixed), write down the corresponding memory location. 
+
+(Label: Memory location)
+OUTERLOOP: x3004
+INNERLOOP: x3005
+INPUT:     x300E
+CLEAR:     x300F
+NEGATIVE:  x3010
+RESULT:    x3011
+
+
+Question 3: Between using labels and explicit memory locations/offsets, which one makes the most sense, and why?
+
+Labels makes more sense. Compared to a series of numbers provided by explicit memory locations, labels provide more meaning about the value it stored or its memory location, which makes it easier and clearer for us while editing the program. Also, Labels are helpful when we make changes to a program, since adding or removing lines may cause offsets to change. But when we use labels, the assembler computes the correct offsets automatically, saving us a lot of trouble.

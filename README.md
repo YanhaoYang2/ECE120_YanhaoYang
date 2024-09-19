@@ -1,5 +1,3 @@
-# ECE 120 (sp23) repo for NetID: yanhaoy2
+ ECE 120 (sp23) repo for NetID: yanhaoy2
 
-GitHub username at initialization time: YanhaoYang2
-
-For next steps, please refer to the instructions provided by your course.
+A series of projects introducing the practice of Assemly Language 
